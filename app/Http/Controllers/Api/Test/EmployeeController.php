@@ -10,7 +10,8 @@ use App\Http\Resources\Test\EmployeeResource;
 class EmployeeController extends Controller
 {
     public function index(){
-        return Employee::all();
+        // return Employee::all();
+        return Employee::with('sector')->get();
     }
 
     public function show(Employee $Employee){

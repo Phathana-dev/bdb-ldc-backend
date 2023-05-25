@@ -18,7 +18,9 @@ class EmployeeResource extends JsonResource
         return  [
             'epmId' => $this -> epy_id,
             'sectorId' => $this -> sector_id,
+            'sectorName' => "Show here",
             'epyName'=> $this -> epy_name,
+
         ];
     }
 }

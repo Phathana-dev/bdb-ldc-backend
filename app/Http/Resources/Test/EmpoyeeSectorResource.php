@@ -15,9 +15,9 @@ class EmpoyeeSectorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return  [
-            'epmId' => $this -> epy_id,
+            // 'epmId' => $this -> epy_id,
             // 'sectorId' => $this -> sector_id,
-            'epyName'=> $this -> epy_name,
+            'sectorName'=> $this -> sector_name,
         ];
     }
 }
