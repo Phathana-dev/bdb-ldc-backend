@@ -27,3 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=>'test', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
     Route::apiResource('sector',SectorController::class);
 });
+Route::group(['prefix'=>'v1', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
+    Route::apiResource('sector',SectorController::class);
+});
