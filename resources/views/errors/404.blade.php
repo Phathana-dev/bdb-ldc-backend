@@ -18,7 +18,8 @@
         <style>
             .page_404 {
                 padding: 40px 0;
-                background: #fff;
+                /* background: #f7ece8; */
+                background: #ffffff;
                 font-family: "Arvo", serif;
             }
 
@@ -27,9 +28,13 @@
             }
 
             .four_zero_four_bg {
-                background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-                height: 400px;
+                /* background-image: url(https://media.tenor.com/6QG4Z51-JmQAAAAC/404-error.gif); */
+                /* background-image: url(https://cdn.dribbble.com/users/274482/screenshots/15399684/media/3906f3dfa09ff3041acb15a1e03d636f.gif); */
+                background-image: url("http://localhost:8890/assets/images/pageNotFound.gif");
+                /* background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif); */
+                height: 500px;
                 background-position: center;
+                background-repeat: no-repeat;
             }
 
             .four_zero_four_bg h1 {
@@ -52,7 +57,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="page_404">
         <section class="page_404">
             <div class="container">
                 <div class="row">

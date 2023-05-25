@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\SectorResource;
 use App\Http\Controllers\Api\Test\SectorController;
+use App\Http\Controllers\Api\Test\EmployeeController;
 
 
 /*
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // api/test
 Route::group(['prefix'=>'test', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
     Route::apiResource('sector',SectorController::class);
+    Route::apiResource('employee', EmployeeController::class);
 });
 
 

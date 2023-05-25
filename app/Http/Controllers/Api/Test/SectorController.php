@@ -15,23 +15,27 @@ class SectorController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        // return new SectorCollection( Sector::all());
+        // $sector = Sector::all();
+        $sector = Sector::with('employees')->get();
+        return  new SectorCollection($sector);
+        // return Sector::all();
 
 
-        $filter = new SectorQuery();
-        $queryItem = $filter -> transform($request);
+        // $filter = new SectorQuery();
+        // $queryItem = $filter -> transform($request);
 
-        if(count($queryItem) ==0){
+        // if(count($queryItem) ==0){
 
-            return new SectorCollection( Sector::paginate());
-        }
-        else {
-            return new SectorCollection(Sector::where($queryItem)->paginate());
-        }
+            // return new SectorCollection( Sector::paginate());
+        // }
+        // else {
+        //     return new SectorCollection(Sector::where($queryItem)->paginate());
+        // }
 
     }
 
     public function show(Sector $sector){
+
 
         return new SectorResource($sector);
         // return $sector;
