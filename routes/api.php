@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\SectorResource;
 use App\Http\Controllers\Api\Test\SectorController;
 use App\Http\Controllers\Api\Test\EmployeeController;
+use App\Http\Controllers\Api\Test\ShiftTimeController;
+
 
 
 /*
@@ -31,11 +33,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 $prefix = 'test';
-Route::get('/'.$prefix.'/sector',[SectorController::class,'index']);
-Route::get('/'.$prefix.'/sector/{id}',[SectorController::class,'findSectorByID']);
+
+## Sector API - Get All data and single data
+Route::get($prefix.'/sector',[SectorController::class,'getSector']);
+Route::get($prefix.'/sector/{id}',[SectorController::class,'getSectorById']);
+Route::get($prefix.'/sectoremp',[SectorController::class,'getSectorWithEmp']);
+Route::get($prefix.'/sectoremp/{id}',[SectorController::class,'getSectorByIdWithEmp']);
 
 
-Route::group(['prefix'=>'v1', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
-    Route::apiResource('sector',SectorController::class);
-});
 
+## Employee API
+Route::get($prefix.'/emp',[EmployeeController::class,'getEmployee']);
+
+
+
+## ShiftTime data
+Route::get($prefix.'/shifttime',[ShiftTimeController::class,'getShiftTime']);
+Route::post($prefix.'/shifttime/search',[ShiftTimeController::class,'searchShiftTime']);

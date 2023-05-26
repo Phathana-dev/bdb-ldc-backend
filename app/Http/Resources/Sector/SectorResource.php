@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Test;
+namespace App\Http\Resources\Sector;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EmpoyeeSectorResource extends JsonResource
+class SectorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,10 @@ class EmpoyeeSectorResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return  [
-            // 'epmId' => $this -> epy_id,
-            // 'sectorId' => $this -> sector_id,
-            'sectorName'=> $this -> sector_name,
+
+        return [
+            'id'=> $this->id,
+            'sectorName'=> $this->sector_name,
         ];
     }
 }

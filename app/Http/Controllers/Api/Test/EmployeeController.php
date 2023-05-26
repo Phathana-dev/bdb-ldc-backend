@@ -5,16 +5,15 @@ namespace App\Http\Controllers\Api\Test;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Test\EmployeeResource;
+use App\Http\Resources\Sector\EmployeeForSectorResource;
+use App\Http\Resources\Sector\EmployeeForSectorCollection;
+
 
 class EmployeeController extends Controller
 {
-    public function index(){
-        // return Employee::all();
-        return Employee::with('sector')->get();
-    }
-
-    public function show(Employee $Employee){
-        return new EmployeeResource($Employee);
+    public function getEmployee(){
+        $data = Employee::all();
+        $data = new EmployeeForSectorCollection($data);
+        return $data;
     }
 }

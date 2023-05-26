@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Test;
+namespace App\Http\Resources\Sector;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class SectorEmployeeCollection extends ResourceCollection
+class SectorWithEmployeeCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
