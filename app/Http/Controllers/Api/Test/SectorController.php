@@ -15,29 +15,30 @@ class SectorController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function index(Request $request){
-        // $sector = Sector::all();
-        $sector = Sector::with('employees')->get();
-        return  new SectorCollection($sector);
-        // return Sector::all();
+        $data=Sector::all();
 
-
-        // $filter = new SectorQuery();
-        // $queryItem = $filter -> transform($request);
-
-        // if(count($queryItem) ==0){
-
-            // return new SectorCollection( Sector::paginate());
-        // }
-        // else {
-        //     return new SectorCollection(Sector::where($queryItem)->paginate());
-        // }
-
+        if($data->count()>0){
+            $data= new SectorCollection(Sector::with('employees')->get());
+            $data = ['status' => 200, 'data'=> $data];
+        }
+        else {
+            $data = ['status1' => 204, 'data'=> 'No data'];
+        }
+        return response()->json($data, 200);
     }
 
-    public function show(Sector $sector){
+    public function findSectorByID($id){
 
+        $data=Sector::where('id','=',$id)->get();
 
-        return new SectorResource($sector);
-        // return $sector;
+      if($data->count()>0)
+      {
+        $data= new SectorCollection($data);
+        $data = ['status' => 200, 'data'=> $data];
+      }
+      else {
+        $data = ['status1' => 204, 'data'=> 'No data'];
+      }
+        return response()->json($data, 200);
     }
 }

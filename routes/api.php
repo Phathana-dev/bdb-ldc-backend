@@ -25,10 +25,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 // api/test
-Route::group(['prefix'=>'test', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
-    Route::apiResource('sector',SectorController::class);
-    Route::apiResource('employee', EmployeeController::class);
-});
+// Route::group(['prefix'=>'test', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){
+//     Route::apiResource('sector',SectorController::class);
+//     Route::apiResource('employee', EmployeeController::class);
+// });
+
+$prefix = 'test';
+Route::get('/'.$prefix.'/sector',[SectorController::class,'index']);
+Route::get('/'.$prefix.'/sector/{id}',[SectorController::class,'findSectorByID']);
 
 
 Route::group(['prefix'=>'v1', 'namespace'=>'App\Http\Controllers\Api\Test'], function(){

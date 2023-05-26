@@ -21,12 +21,14 @@ class SectorResource extends JsonResource
         //  return parent::toArray($request);
         return [
             'id' => $this->id,
-            'sectorName1' => $this-> sector_name,
+            'sectorName' => $this-> sector_name,
 
             // 'emplyees'=>  SectorEmployeeResource::collection($this->employees),
+            // Employee List
             $this -> mergeWhen(Employee::where('sector_id','=',$this->id)->count() >0,[
 
-                'emplyees'=>  SectorEmployeeResource::collection($this->employees),
+                'employeesNumber'=>  Employee::where('sector_id','=',$this->id)->count(),
+                'employees'=>  SectorEmployeeResource::collection($this->employees),
                 // 'employees'=> SectorEmployeeResource::collection($this->whenLoaded('employees')),
             ])
         ];
